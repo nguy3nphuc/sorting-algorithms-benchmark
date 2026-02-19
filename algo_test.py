@@ -7,34 +7,29 @@ import matplotlib.pyplot as plt
 sys.setrecursionlimit(2000000)
 
 def benchmark_sorting():
-    # 1. Load toàn bộ bộ dữ liệu
+    # Load toàn bộ bộ dữ liệu
     print("Đang load dữ liệu...")
     data = np.load("data.npy", allow_pickle=True)
-    
-    # Danh sách các thuật toán ông muốn test
-    # Lưu dưới dạng: (tên_hàm, hàm_thực_thi)
-    # Ví dụ tôi có hàm my_quick_sort và np.sort (để so sánh với hàng xịn của thư viện)
+    # Định nghĩa các thuật toán cần benchmark
     algorithms = [
         ("Numpy Built-in Sort", np.sort),
         ("My Quick Sort", my_sorts.quick_sort), 
         ("My Merge Sort", my_sorts.merge_sort),
         ("My Heap Sort", my_sorts.heap_sort),
     ]
-
+    # Nhãn cho từng dãy dữ liệu
     labels = [
         "Thực - Tăng dần", "Thực - Giảm dần", "Thực - Ngẫu nhiên 1", 
         "Thực - Ngẫu nhiên 2", "Thực - Ngẫu nhiên 3", "Nguyên - Ngẫu nhiên 1",
         "Nguyên - Ngẫu nhiên 2", "Nguyên - Ngẫu nhiên 3", "Nguyên - Ngẫu nhiên 4", "Nguyên - Ngẫu nhiên 5"
     ]
-
+    # Tạo dictionary để lưu kết quả
     results_dict = {name: [] for name, _ in algorithms}
 
     for algo_name, algo_func in algorithms:
         print(f"\nĐANG TEST: {algo_name}")
         
         for i in range(len(data)):
-            # QUAN TRỌNG: Phải copy mảng để tránh việc dãy sau khi sort xong 
-            # sẽ bị lưu đè vào file gốc hoặc làm sai lệch kết quả lần test sau
             arr_test = data[i].copy()
             
             start_time = time.time()
@@ -45,7 +40,6 @@ def benchmark_sorting():
             results_dict[algo_name].append(duration)
             print(f"Dãy {i+1} ({labels[i]}): {duration:.5f} giây")
     
-    # 3. VẼ BIỂU ĐỒ TỰ ĐỘNG
     print("\nĐang vẽ biểu đồ...")
     num_algos = len(algorithms)
     num_datasets = len(labels)
@@ -55,7 +49,6 @@ def benchmark_sorting():
     
     plt.figure(figsize=(15, 8))
     
-    # Màu sắc tự động cho các cột
     colors = plt.cm.get_cmap('viridis', num_algos)
 
     for i, (name, _) in enumerate(algorithms):
@@ -73,7 +66,7 @@ def benchmark_sorting():
     
     # Lưu ảnh và hiển thị
     plt.savefig("benchmark_result.png")
-    print("✅ Đã lưu biểu đồ vào file 'benchmark_result.png'")
+    print("Đã lưu biểu đồ vào file 'benchmark_result.png'")
     plt.show()
 
 if __name__ == "__main__":
