@@ -1,16 +1,16 @@
 # BÁO CÁO KẾT QUẢ THỬ NGHIỆM THUẬT TOÁN SẮP XẾP
 
-[cite_start]Dự án này thực hiện đo lường và so sánh hiệu năng của các thuật toán sắp xếp kinh điển được cài đặt bằng ngôn ngữ Python so với thư viện tối ưu hóa Numpy[cite: 1, 2].
+Dự án này thực hiện đo lường và so sánh hiệu năng của các thuật toán sắp xếp kinh điển được cài đặt bằng ngôn ngữ Python so với thư viện tối ưu hóa Numpy.
 
 ## 1. Thông tin chung
-* [cite_start]**Sinh viên thực hiện**: [Điền tên của bạn] [cite: 3]
-* [cite_start]**Lớp**: [Điền tên lớp của bạn] [cite: 1]
-* [cite_start]**Nội dung**: Thử nghiệm tốc độ thực thi trên 10 bộ dữ liệu số thực và số nguyên, mỗi bộ gồm 1.000.000 phần tử[cite: 4, 13].
+* **Sinh viên thực hiện**: Quảng Thành Nguyên Phúc
+* **Lớp**: AI2025
+* **Nội dung**: Thử nghiệm tốc độ thực thi trên 10 bộ dữ liệu số thực và số nguyên, mỗi bộ gồm 1.000.000 phần tử.
 
 ## 2. Kết quả thử nghiệm
 
 ### Bảng thời gian thực hiện (đơn vị: giây)
-[cite_start]Dữ liệu thử nghiệm bao gồm các trạng thái: tăng dần (1), giảm dần (2) và ngẫu nhiên (3-10)[cite: 5, 6].
+Dữ liệu thử nghiệm bao gồm các trạng thái: tăng dần (1), giảm dần (2) và ngẫu nhiên (3-10).
 
 | Dữ liệu | Quick sort | Heap sort | Merge sort | Numpy Builtin sort |
 | :---: | :---: | :---: | :---: | :---: |
@@ -26,21 +26,21 @@
 | **10** | 5.10896 | 10.58359 | 4.62118 | 0.56941 |
 | **Trung bình** | **4.91653** | **10.33951** | **4.52038** | **0.50378** |
 
-[cite_start]*(Dữ liệu được trích xuất từ bảng kết quả thực nghiệm thực tế [cite: 6, 7])*
+*(Dữ liệu được trích xuất từ kết quả thực nghiệm thực tế)*
 
 ### Biểu đồ thời gian thực hiện
-![Biểu đồ kết quả](latest_benchmark_result.png) 
-[cite_start]*(Hình ảnh minh họa so sánh thời gian thực hiện giữa các thuật toán )*
+![Biểu đồ kết quả](benchmark_result.png)
+*(Hình ảnh minh họa so sánh thời gian thực hiện giữa các thuật toán)*
 
 ## 3. Kết luận
-[cite_start]Dựa trên kết quả thực nghiệm thu được, dự án rút ra các kết luận sau[cite: 9]:
-* [cite_start]**Numpy Builtin sort**: Cho tốc độ vượt trội nhất với thời gian trung bình khoảng 0.50378 giây, nhanh gấp nhiều lần so với các thuật toán tự cài đặt[cite: 6].
-* [cite_start]**Merge sort**: Là thuật toán có hiệu năng tốt nhất và ổn định nhất trong nhóm tự cài đặt với thời gian trung bình khoảng 4.52 giây[cite: 6].
-* [cite_start]**Quick sort**: Nhờ cải tiến chọn Pivot ngẫu nhiên, thuật toán duy trì được tốc độ trung bình khoảng 4.91 giây và không bị suy biến khi gặp các dãy số có thứ tự[cite: 6].
-* [cite_start]**Heap sort**: Có thời gian thực hiện lâu nhất, trung bình khoảng 10.33 giây[cite: 6].
+Dựa trên kết quả thực nghiệm thu được, dự án rút ra các kết luận sau:
+* **Numpy Builtin sort**: Cho tốc độ vượt trội nhất với thời gian trung bình khoảng 0.50378 giây, nhanh gấp nhiều lần so với các thuật toán tự cài đặt.
+* **Merge sort**: Là thuật toán có hiệu năng tốt nhất và ổn định nhất trong nhóm tự cài đặt với thời gian trung bình khoảng 4.52 giây.
+* **Quick sort**: Nhờ cải tiến chọn Pivot ngẫu nhiên, thuật toán duy trì được tốc độ trung bình khoảng 4.91 giây và không bị suy biến khi gặp các dãy số có thứ tự.
+* **Heap sort**: Có thời gian thực hiện lâu nhất, trung bình khoảng 10.33 giây, do chi phí truy cập bộ nhớ và duy trì cấu trúc heap cao hơn.
 
 ## 4. Thông tin chi tiết
-[cite_start]Repository này bao gồm các thành phần sau[cite: 10]:
-* [cite_start]**Báo cáo**: Chi tiết quá trình thử nghiệm và phân tích (file README.md)[cite: 11].
-* [cite_start]**Mã nguồn**: Toàn bộ code Python thực thi các thuật toán[cite: 12].
-* [cite_start]**Dữ liệu thử nghiệm**: Script tạo bộ dữ liệu 1 triệu phần tử[cite: 13].
+Repository này bao gồm các thành phần sau:
+* **Báo cáo**: Chi tiết quá trình thử nghiệm và phân tích (file README.md).
+* **Mã nguồn**: Toàn bộ code Python thực thi các thuật toán.
+* **Dữ liệu thử nghiệm**: Script tạo bộ dữ liệu 1 triệu phần tử.
